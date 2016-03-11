@@ -7,18 +7,22 @@
 
 class Robot {
 private:
-    const std::string POSES_FILE;
-    const std::string RANGES_FILE;
+    static const std::string POSES_FILE;
+    static const std::string RANGES_FILE;
 
     std::vector<std::vector<double>> poses;
     std::vector<std::vector<double>> ranges;
-    std::vector<std::vector<double>> sensorAngles;
+    std::vector<int> sensorAngles;
 
+    void readInData();
     void read(std::istream &in, std::vector<std::vector<double>> &v,
               std::vector<double>::size_type size);
 
 public:
     Robot();
+    const std::vector<std::vector<double>> &getPoses() const;
+    const std::vector<std::vector<double>> &getRanges() const;
+    const std::vector<int> &getSensorAngles() const;
 };
 
 #endif //OCCUPANCYGRID2_ROBOT_H
