@@ -12,7 +12,7 @@ private:
 
     std::vector<std::vector<double>> poses;
     std::vector<std::vector<double>> ranges;
-    std::vector<int> sensorAngles;
+    std::vector<double> sensorAngles;
 
     void readInData();
     void read(std::istream &in, std::vector<std::vector<double>> &v,
@@ -22,7 +22,7 @@ public:
     Robot();
     const std::vector<std::vector<double>> &getPoses() const;
     const std::vector<std::vector<double>> &getRanges() const;
-    const std::vector<int> &getSensorAngles() const;
+    const std::vector<double> &getSensorAngles() const;
 };
 
 #endif //OCCUPANCYGRID2_ROBOT_H

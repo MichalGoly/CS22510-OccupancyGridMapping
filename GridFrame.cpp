@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdexcept>
 #include "GridFrame.h"
+#include "converter.h"
 
 using std::vector;
 using std::domain_error;
@@ -13,13 +14,48 @@ GridFrame::GridFrame() : WINDOW_HEIGHT(500), WINDOW_WIDTH(500), CELL_WIDTH(10) {
 }
 
 void GridFrame::animate() {
-    //TODO final bit
     double xr, yr, orientation, beta, x, y;
 
-    for (vector<vector<double>>::size_type i = 0; i < grid->getRowsNumber();
-         i++) {
-        xr = robot->getPoses()[i][0];
+    vector<vector<double>> poses = robot->getPoses();
+    vector<vector<double>> ranges = robot->getRanges();
+    vector<double> sensorAngles = robot->getSensorAngles();
 
+    for (vector<vector<double>>::size_type i = 0; i < poses.size(); i++) {
+        xr = robot->getPoses()[i][0];
+        yr = robot->getPoses()[i][1];
+        orientation = robot->getPoses()[i][2];
+        beta = converter::toRadians(orientation);
+
+        for (vector<double>::size_type j = 0; j < ranges.begin()->size(); j++) {
+            if (ranges[i][j] >= 2.5) {
+                continue;
+            } else {
+                x = converter::getX(xr, ranges[i][j],
+                                    converter::toRadians(sensorAngles[j]), beta);
+                y = converter::getY(yr, ranges[i][j],
+                                    converter::toRadians(sensorAngles[j]), beta);
+                grid->increaseProbability(converter::toCellIndex(x),
+                                          converter::toCellIndex(y));
+                grid->clearCellsBetween(converter::toCellIndex(xr),
+                                        converter::toCellIndex(yr),
+                                        converter::toCellIndex(x),
+                                        converter::toCellIndex(y));
+            }
+        }
+
+        repaint();
+        al_init_timeout(&timeout, 1.5);
+        bool eventOccured = al_wait_for_event_until(eventQueue, &event, &timeout);
+        if (eventOccured && event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
+            break;
+        }
+    }
+
+    while (1) {
+        bool eventOccured = al_wait_for_event_until(eventQueue, &event, &timeout);
+        if (eventOccured && event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
+            break;
+        }
     }
 }
 

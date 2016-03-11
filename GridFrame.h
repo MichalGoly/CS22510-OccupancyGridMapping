@@ -17,8 +17,9 @@ private:
     Grid* grid;
     Robot* robot;
     ALLEGRO_DISPLAY* display;
-    ALLEGRO_EVENT* event;
+    ALLEGRO_EVENT event;
     ALLEGRO_EVENT_QUEUE* eventQueue;
+    ALLEGRO_TIMEOUT timeout;
     std::map<int, ALLEGRO_COLOR> colors;
 
     void initFrame();

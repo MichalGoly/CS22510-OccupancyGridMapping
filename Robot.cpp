@@ -22,7 +22,7 @@ const std::vector<std::vector<double>> &Robot::getRanges() const {
     return ranges;
 }
 
-const std::vector<int> &Robot::getSensorAngles() const {
+const std::vector<double> &Robot::getSensorAngles() const {
     return sensorAngles;
 }
 
