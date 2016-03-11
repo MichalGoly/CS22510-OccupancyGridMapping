@@ -6,13 +6,21 @@ using std::vector;
 using std::pair;
 using std::domain_error;
 
-Grid::Grid() : GRID_COLS(50), GRID_ROWS(50), DEFAULT_PROBABILITY(5),
+Grid::Grid() : COLS_NUMBER(50), ROWS_NUMBER(50), DEFAULT_PROBABILITY(5),
                MAX_PROBABILITY(9), MIN_POBABILITY(1) {
     initGrid();
 }
 
 const std::vector<std::vector<int>> &Grid::getRawGrid() const {
     return rawGrid;
+}
+
+const int Grid::getRowsNumber() const {
+    return ROWS_NUMBER;
+}
+
+const int Grid::getColsNumber() const {
+    return COLS_NUMBER;
 }
 
 void Grid::clearCellsBetween(int x1, int y1, int x2, int y2) {
@@ -26,7 +34,7 @@ void Grid::clearCellsBetween(int x1, int y1, int x2, int y2) {
 
 // increase probability of not already maximal
 void Grid::increaseProbability(int x, int y) {
-    if (x < 0 || x >= GRID_COLS || y < 0 || y >= GRID_ROWS) {
+    if (x < 0 || x >= COLS_NUMBER || y < 0 || y >= ROWS_NUMBER) {
         throw domain_error("Index out of bounds!");
     }
 
@@ -37,7 +45,7 @@ void Grid::increaseProbability(int x, int y) {
 
 // reduce probability if not already the least
 void Grid::decreaseProbability(int x, int y) {
-    if (x < 0 || x >= GRID_COLS || y < 0 || y >= GRID_ROWS) {
+    if (x < 0 || x >= COLS_NUMBER || y < 0 || y >= ROWS_NUMBER) {
         throw domain_error("Index out of bounds!");
     }
 
@@ -47,15 +55,14 @@ void Grid::decreaseProbability(int x, int y) {
 }
 
 void Grid::initGrid() {
-    for (int i = 0; i < GRID_COLS; i++) {
+    for (int i = 0; i < ROWS_NUMBER; i++) {
         vector<int> row;
-        for (int j = 0; j < GRID_ROWS; j++) {
+        for (int j = 0; j < COLS_NUMBER; j++) {
             row.push_back(DEFAULT_PROBABILITY);
         }
         rawGrid.push_back(row);
     }
 }
-
 
 /**
  *  returns all cell indices between (x1, y1) and (x2, y2) in the grid
