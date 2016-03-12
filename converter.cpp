@@ -13,19 +13,37 @@ namespace converter {
     }
 
     /**
-     * TODO comment
+     * Calculates the absolute X coordinate of the obstacle based on the
+     * horizontal position of the robot (xr), the range from the given
+     * robot sensor to the obstacle, and the sum of alpha (angle of the sensor)
+     * and beta (orientation of the robot itself) in radians.
+     *
+     * @param xr The horizontal position of the robot in metres
+     * @param range The distance between the robot and the obstacle
+     * @param alpha The angle of one of the 8 sensors in radians
+     * @param beta The orientation of the robot in radians
+     * @return The absolute X coordinate of the obstacle
      */
-    double getX(const double &xr, const double &r, const double &alpha,
+    double getX(const double &xr, const double &range, const double &alpha,
                 const double &beta) {
-        return xr + r * cos(alpha + beta);
+        return xr + range * cos(alpha + beta);
     }
 
     /**
-     * TODO comment
+     * Calculates the absolute Y coordinate of the obstacle based on the
+     * vertical position of the robot (yr), the range from the given
+     * robot sensor to the obstacle, and the sum of alpha (angle of the sensor)
+     * and beta (orientation of the robot itself) in radians.
+     *
+     * @param yr The vertical position of the robot in metres
+     * @param range The distance between the robot and the obstacle
+     * @param alpha The angle of one of the 8 sensors in radians
+     * @param beta The orientation of the robot in radians
+     * @return The absolute Y coordinate of the obstacle
      */
-    double getY(const double &yr, const double &r, const double &alpha,
+    double getY(const double &yr, const double &range, const double &alpha,
                 const double &beta) {
-        return yr + r * sin(alpha + beta);
+        return yr + range * sin(alpha + beta);
     }
 
     /**

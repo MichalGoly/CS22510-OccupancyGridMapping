@@ -6,10 +6,10 @@
 namespace converter {
     double toRadians(const double &degrees);
 
-    double getX(const double &xr, const double &r, const double &alpha,
+    double getX(const double &xr, const double &range, const double &alpha,
                 const double &beta);
 
-    double getY(const double &yr, const double &r, const double &alpha,
+    double getY(const double &yr, const double &range, const double &alpha,
                 const double &beta);
 
     int toCellIndex(const double &position);

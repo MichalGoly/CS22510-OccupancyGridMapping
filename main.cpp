@@ -6,6 +6,9 @@ using std::domain_error;
 using std::cerr;
 using std::endl;
 
+/**
+ * The starting point of the program
+ */
 int main() {
     try {
         GridFrame* gridFrame = new GridFrame;

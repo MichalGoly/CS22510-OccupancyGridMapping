@@ -9,7 +9,7 @@ private:
     const int ROWS_NUMBER;
     const int DEFAULT_PROBABILITY;
     const int MAX_PROBABILITY;
-    const int MIN_POBABILITY;
+    const int MIN_PROBABILITY;
 
     std::vector<std::vector<int>> rawGrid;
 
@@ -27,3 +27,4 @@ public:
 };
 
 #endif //OCCUPANCYGRID2_GRID_H
+
