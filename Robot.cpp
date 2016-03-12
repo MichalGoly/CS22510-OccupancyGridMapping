@@ -2,7 +2,6 @@
 #include <fstream>
 
 using std::istream;
-using std::vector;
 using std::string;
 using std::ifstream;
 
@@ -44,15 +43,15 @@ void Robot::readInData() {
 /**
  * Reads in file into the 2D vector
  */
-void Robot::read(istream &in, vector<vector<double>> &v,
-                 vector<double>::size_type size) {
+void Robot::read(istream &in, std::vector<std::vector<double>> &v,
+                 std::vector<double>::size_type size) {
     double number;
 
     while ((in >> number) != NULL) {
-        vector<double> line;
+        std::vector<double> line;
         line.push_back(number);
 
-        for (vector<double>::size_type i = 0; i < size - 1; i++) {
+        for (std::vector<double>::size_type i = 0; i < size - 1; i++) {
             in >> number;
             line.push_back(number);
         }

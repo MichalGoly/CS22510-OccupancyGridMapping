@@ -3,7 +3,6 @@
 #include "GridFrame.h"
 #include "converter.h"
 
-using std::vector;
 using std::domain_error;
 
 GridFrame::GridFrame() : WINDOW_HEIGHT(500), WINDOW_WIDTH(500), CELL_WIDTH(10) {
@@ -16,17 +15,17 @@ GridFrame::GridFrame() : WINDOW_HEIGHT(500), WINDOW_WIDTH(500), CELL_WIDTH(10) {
 void GridFrame::animate() {
     double xr, yr, orientation, beta, x, y;
 
-    vector<vector<double>> poses = robot->getPoses();
-    vector<vector<double>> ranges = robot->getRanges();
-    vector<double> sensorAngles = robot->getSensorAngles();
+    std::vector<std::vector<double>> poses = robot->getPoses();
+    std::vector<std::vector<double>> ranges = robot->getRanges();
+    std::vector<double> sensorAngles = robot->getSensorAngles();
 
-    for (vector<vector<double>>::size_type i = 0; i < poses.size(); i++) {
+    for (std::vector<std::vector<double>>::size_type i = 0; i < poses.size(); i++) {
         xr = robot->getPoses()[i][0];
         yr = robot->getPoses()[i][1];
         orientation = robot->getPoses()[i][2];
         beta = converter::toRadians(orientation);
 
-        for (vector<double>::size_type j = 0; j < ranges.begin()->size(); j++) {
+        for (std::vector<double>::size_type j = 0; j < ranges.begin()->size(); j++) {
             if (ranges[i][j] >= 2.5) {
                 continue;
             } else {

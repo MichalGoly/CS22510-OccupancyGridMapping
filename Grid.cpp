@@ -2,8 +2,6 @@
 #include <stdexcept>
 #include "Grid.h"
 
-using std::vector;
-using std::pair;
 using std::domain_error;
 
 Grid::Grid() : COLS_NUMBER(50), ROWS_NUMBER(50), DEFAULT_PROBABILITY(5),
@@ -24,9 +22,9 @@ const int Grid::getColsNumber() const {
 }
 
 void Grid::clearCellsBetween(int x1, int y1, int x2, int y2) {
-    vector<pair<int, int>> indices = getIndices(x1, y1, x2, y2);
+    std::vector<std::pair<int, int>> indices = getIndices(x1, y1, x2, y2);
 
-    for (vector<pair<int, int>>::const_iterator it = indices.begin();
+    for (std::vector<std::pair<int, int>>::const_iterator it = indices.begin();
          it != indices.end(); it++) {
         decreaseProbability(it->first, it->second);
     }
@@ -56,7 +54,7 @@ void Grid::decreaseProbability(int x, int y) {
 
 void Grid::initGrid() {
     for (int i = 0; i < ROWS_NUMBER; i++) {
-        vector<int> row;
+        std::vector<int> row;
         for (int j = 0; j < COLS_NUMBER; j++) {
             row.push_back(DEFAULT_PROBABILITY);
         }
@@ -70,7 +68,7 @@ void Grid::initGrid() {
  *  http://tech-algorithm.com/articles/drawing-line-using-bresenham-algorithm/
  */
 std::vector<std::pair<int, int>> Grid::getIndices(int x1, int y1, int x2, int y2) {
-    vector<pair<int, int>> result;
+    std::vector<std::pair<int, int>> result;
 
     int width = x2 - x1;
     int height = y2 - y1;
@@ -124,7 +122,7 @@ std::vector<std::pair<int, int>> Grid::getIndices(int x1, int y1, int x2, int y2
             x1 += dx;
             y1 += dy;
         }
-        result.push_back(pair<int, int>(x1, y1));
+        result.push_back(std::pair<int, int>(x1, y1));
     }
 
     return result;
