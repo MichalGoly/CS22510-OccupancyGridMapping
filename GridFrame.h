@@ -28,6 +28,7 @@ private:
 
 public:
     GridFrame();
+    ~GridFrame();
     void animate();
 };
 

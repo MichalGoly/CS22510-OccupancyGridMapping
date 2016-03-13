@@ -42,7 +42,14 @@ const int Grid::getColsNumber() const {
 }
 
 /**
+ * Decreases the probability of all the cells being occupied between the two
+ * points provided. Typically (x1,y1) are the coordinates of the robot and
+ * (x2,y2) are the coordinates of the obstacle.
  *
+ * @param x1 The x index of the first cell
+ * @param y1 The y index of the first cell
+ * @param x2 The x index of the second cell
+ * @param y2 The y index of the second cell
  */
 void Grid::clearCellsBetween(int x1, int y1, int x2, int y2) {
     std::vector<std::pair<int, int>> indices = getIndices(x1, y1, x2, y2);
