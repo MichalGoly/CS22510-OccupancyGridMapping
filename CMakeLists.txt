@@ -6,9 +6,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(SOURCE_FILES main.cpp converter.cpp converter.h Robot.cpp Robot.h GridFrame.cpp GridFrame.h Grid.cpp Grid.h)
 add_executable(OccupancyGrid2 ${SOURCE_FILES})
 
-INCLUDE_DIRECTORIES( allegro/5.0.11/include )
+INCLUDE_DIRECTORIES(allegro/5.0.11/include)
 
-LINK_DIRECTORIES( allegro/5.0.11/lib )
+LINK_DIRECTORIES(allegro/5.0.11/lib)
 
 TARGET_LINK_LIBRARIES(OccupancyGrid2  allegro_acodec
         allegro_audio
