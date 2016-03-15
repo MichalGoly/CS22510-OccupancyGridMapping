@@ -19,8 +19,8 @@ private:
 public:
     Grid();
     const std::vector<std::vector<int>> &getRawGrid() const;
-    const int getRowsNumber() const;
-    const int getColsNumber() const;
+    int getRowsNumber() const;
+    int getColsNumber() const;
     void clearCellsBetween(int x1, int y1, int x2, int y2);
     void increaseProbability(int x, int y);
     void decreaseProbability(int x, int y);

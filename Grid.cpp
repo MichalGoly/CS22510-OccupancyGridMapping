@@ -30,14 +30,14 @@ const std::vector<std::vector<int>> &Grid::getRawGrid() const {
 /**
  * @return The amount of rows in the grid
  */
-const int Grid::getRowsNumber() const {
+int Grid::getRowsNumber() const {
     return ROWS_NUMBER;
 }
 
 /**
  * @return The amount of columns in the grid
  */
-const int Grid::getColsNumber() const {
+int Grid::getColsNumber() const {
     return COLS_NUMBER;
 }
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.13)  14 MAR 2016 13:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.13)  15 MAR 2016 10:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -145,7 +145,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
 []\OT1/cmr/m/n/12 http://tech-algorithm.com/articles/drawing-line-using-bresenh
 am-algorithm/ [Ac-
  []
@@ -164,7 +164,7 @@ cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on report.pdf (3 pages, 57238 bytes).
+Output written on report.pdf (3 pages, 57535 bytes).
 PDF statistics:
  34 PDF objects out of 1000 (max. 8388607)
  23 compressed objects within 1 object stream

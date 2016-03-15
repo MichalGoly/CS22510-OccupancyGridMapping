@@ -14,7 +14,7 @@ using std::domain_error;
  * GridFrame is created with the default height and width of 500 and the cell width
  * of 10 to accommodate for the 50x50 grid in the system.
  */
-GridFrame::GridFrame() : WINDOW_HEIGHT(500), WINDOW_WIDTH(500), CELL_WIDTH(10) {
+GridFrame::GridFrame() : WINDOW_WIDTH(500), WINDOW_HEIGHT(500), CELL_WIDTH(10) {
     grid = new Grid;
     robot = new Robot;
     initFrame();
