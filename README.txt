@@ -13,11 +13,10 @@
 - Robot.h             (source code file)
 - includes/           (directory for the source files)
       |
-      +- poses.txt    (source file with positions of the robot)
-      +- ranges.txt   (source file with range readings from robot's sensors)
+      +- poses.txt    (source file with positions of the robot, this has been hard-coded in the program as "includes/poses.txt")
+      +- ranges.txt   (source file with range readings from robot's sensors, this has been hard-coded in the program as "includes/ranges.txt")
 - report.pdf          (the document which describes what I have done)
-- build/              (build directory)
-- output.pdf          (animation of robot mapping the area)
+- output.pdf          (an animation of the robot mapping the area)
 - screencast.          (building the program and running the code)
 
 ## INSTALLATION 
@@ -38,13 +37,35 @@ compiler (g++ version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.1)):
 1. First of all you need to install the allegro5 library using the tutorial 
 available [here](https://wiki.allegro.cc/index.php?title=Install_Allegro5_From_Git/Linux/Debian).
 
-2. Now you need to open your terminal and open the build/ directory:
+2. Now you need to open your terminal and open the root directory of the project. I will refer 
+to it as {PROJECT_DIR} from now on. 
 
-   cd {OCCUPANCY_GRID_INSTALLATION_PATH}/build
+3. Within the project directory create a new folder called build, and open it by typing:
 
-3. Finally, install the program by typing:
+   $ mkdir build
+   $ cd build
+
+4. Now run CMake by typing the following in your terminal:
+
+   $ ccmake -DCMAKE_INSTALL_PREFIX=/usr ..
+
+Once you have run this command, press 'c' on your keyboard. Now you will then have to press 'enter'
+and specify the CMAKE_BUILD_TYPE using one of the options. You can type in 'Release' and press
+'enter' again. Now press 'c', followed by 'g'.
+
+5. Compile the project by typing the following command in your terminal:
    
-   make
+   $ make
+
+6. Finally, you have to move the {PROJECT_DIR}/includes folder into the previously
+created build folder by running:
+   
+   $ mv {PROJECT_DIR}}/includes/ {PROJECT_DIR}}/build/
+
+7. Congratulations! You have managed to install the OccupandyGrid project and you can
+run it by typing the following command within the {PROJECT_DIR}/build/ directory.
+
+   $ ./OccupancyGrid2
    
 ## CREDITS
 
