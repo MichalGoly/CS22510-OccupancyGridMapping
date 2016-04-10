@@ -13,6 +13,7 @@ int main() {
     try {
         GridFrame* gridFrame = new GridFrame;
         gridFrame->animate();
+        delete(gridFrame);
     } catch (domain_error e) {
         cerr << e.what() << endl;
         return 1;

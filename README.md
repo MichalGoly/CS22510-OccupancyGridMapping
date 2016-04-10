@@ -15,9 +15,7 @@
       |
       +- poses.txt    (source file with positions of the robot, this has been hard-coded in the program as "includes/poses.txt")
       +- ranges.txt   (source file with range readings from robot's sensors, this has been hard-coded in the program as "includes/ranges.txt")
-- report.pdf          (the document which describes what I have done)
-- output.pdf          (an animation of the robot mapping the area)
-- screencast.          (building the program and running the code)
+- animation.pdf       (an animation of the robot mapping the area)
 
 ## INSTALLATION 
 
